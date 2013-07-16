@@ -1,0 +1,241 @@
+08839125d.tar.z README Last changed: 13 July 2013
+
+-------------------------------------------------------
+Car Park System (CPS) README
+-------------------------------------------------------
+
+This file will guide you through the CPS.  Please read
+carefully before you proceed to any operation.
+
+NOTE: This file has to contain less than 8000 lines in
+order to be displayed properly in CPS.
+
+-------------------------------------------------------
+Distribution Contents
+-------------------------------------------------------
+
+This CPS distribution contents following files
+
+core.h - The general head file earn.c lxs.c makefile -
+Used by make to build CPS power.c README - This file,
+providing guidance record.c store.c ui.c yhz.c
+
+All the files above except makefile and README are
+essential for CPS.
+
+-------------------------------------------------------
+System Requirements
+-------------------------------------------------------
+
+Screen Size: Columns >= 35, Lines >= 10
+
+Platform: UNIX-like
+
+Max Memory Consumption: 1.3 gigabytes for largest
+possible database size, 7 million parking slots
+
+Max Disk Space Consumption: same as above
+
+Developing tools: C compiler, ncurses library, make
+
+NOTE: The system should have ncurses library to run
+CPS.
+
+-------------------------------------------------------
+Preliminaries & Installation
+-------------------------------------------------------
+
+0.  If you are reading this, you have presumably
+succeeded in extracting the distribution from the
+compressed tar archive file, via the following command,
+or equivalent:
+
+	tar zxf cps.tar.z
+
+1.  Then use "make" to build the executable "cps".
+
+-------------------------------------------------------
+User Interface and Operation
+-------------------------------------------------------
+
+0.0 Overall Screen Display
+
+0.1 Except for the initialization menus, the screen is
+divided into three parts: Main Window for menu and main
+output, Parameters Window for a quick reference and
+History Window recording recent operations.
+
+0.2 The last three lines of the screen is preserved.
+The third last one is for character input.  The second
+last is for key function displaying.  The last line
+acts as the status bar.
+
+0.3 The current active window is marked with reverse
+video.
+
+1.0 Key Instruction Bar
+
+1.1 In most situations, the function keys (direction
+keys, tab and 0 - 9) for window & menu operation is
+displayed in the 2nd last line.
+
+1.2 Users are always advised to stick to function keys
+only shown in this bar.
+
+2.0 Status Bar
+
+2.1 The status bar display short information for
+current operation.  It may display important info so
+please keep an eye on it.
+
+2.2 The status bar will sometime display a progress
+bar.
+
+3.0 Character Input Mode
+
+3.1 In the input mode, the available input keys will be
+shown on the status bar.  Backspace and horizontal
+arrow keys also function as in common sense.
+
+3.2 The up arrow key inputs the cancel command which
+rollback any modification to current entry.
+
+3.3 The down arrow key inputs the send-in command which
+submit the input for examination.  Should the input
+failed to qualified, the input line will be restore to
+initial state for another input.  Should it passes, the
+entry will be modified.
+
+4.0 Menus
+
+4.1 Menu items comes with different functions.  The
+current one is marked in bold and with reversed item
+number.
+
+4.2 The items are numbered in the following way: the
+first digit indicates the ancestor item in the main
+menu, the second, if any, indicates the ancestor in the
+secondary menu.
+
+5.0 Result Display Pad
+
+5.1 The result display pad is a scrollable pad
+containing relatively long operation result.  It ends
+with an EOF line of asterisks.
+
+5.2 Sometimes, the result display pad is used to get
+confirmation from the user.
+
+5.3 If the information to be displayed exceeds the size
+of the pad, CPS will ask for saving it.
+
+6.0 Parameter Window
+
+6.1 Within the parameter window, the item names are
+underlined while their values are displayed in plain.
+
+6.2 For the slots state item.  The numerator shows the
+occupied slots.  The denominator shows the capacities.
+When CPS is empty or full, this value will be displayed
+in bold.
+
+7.0 History Window
+
+7.1 The history window displays operation history, with
+the latest at the bottom of the window.
+
+7.2 The character within the brackets after the license
+No. indicates the operation.  'I' stands for check-in.
+'O' stands for check-out.
+
+7.3 The '#' stands for slot number, '$' for
+money/balance.
+
+7.4 The history window only holds a certain number of
+records.  Once the content exceeds it, the oldest one
+will be deleted from storage.
+
+8.0 Discount Policies
+
+8.1 CPS provide 2 "discount" policies: special time
+span and cumulative award.
+
+8.2 The special time span policy offers another price
+to be set for a certain time span during a day.  The
+price does not necessarily be lower than normal.
+
+8.3 The cumulative award policy reward customer once
+they have spent certain amount of money.  The award
+will be taken off from the current bill.  If the award
+exceeds the payment, the extra amount will be
+discarded.
+
+9.0 Search
+
+9.1 In all interval searches, strings are compared
+based on ascii character value.
+
+9.2 In all interval searches, leaving the start and end
+point empty makes search display all cars checked-in.
+
+10.0 Business Records
+
+10.1 Total business records is calculated and replace
+the detailed record after a day or month has passed.
+This prevents herding a large number of record files
+and makes detailed information inaccessible.
+
+11.0 Limits
+
+	CPS Profile: 30 characters
+
+	License: 20 characters
+
+	Customer Name: 30 characters
+
+	File Path & Name: 90 characters
+
+	Price: 7 digits (including decimal point)
+
+	README: (somewhat fewer than) 8000 lines
+
+	Result display: somewhat fewer than) 8000 lines
+
+	History: (somewhat fewer than) 250 operations
+
+12.0 Special Notifications
+
+12.1 For CPS operations involving slot update.  All the
+time need to be as new as or newer than latest time
+recorded.
+
+12.2 The CPS will create a folder named after the car
+park under the program directory.  Manually operated it
+only with full understanding and due care.
+
+12.3 The user should guarantee enough disk space for
+functioning.
+
+12.4 All the double variables, i.e., money related
+calculation are no more precise that one thousandth.
+
+12.5 All time used in CPS are measured in 24 hour
+clock.  Daylight Saving Time is not considered.
+
+12.6 CPS uses a failsafe mechanism to ensure that
+transactions are preserved under failure.  (Only
+affected by disk cache)
+
+-------------------------------------------------------
+License
+-------------------------------------------------------
+
+All the documents accompanied within this distribution
+are available under terms of GNU Free Document Licence.
+
+All the source codes, scripts, programs are available
+under terms of GNU GPL.
+
+-------------------------------------------------------
+End of README
+-------------------------------------------------------
