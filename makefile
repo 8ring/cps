@@ -12,12 +12,7 @@ nuke: clean
 	rm -f cps
 
 readme:
-# fmt has different versions, use caution. Check man page for -l or -w or whatever
-## Plan 9:
-#	fmt -l 55 README > README_
-## (Open)BSD, Linux, &c
-#	fmt -w 55 README > README_
+	fmt -w 55 README > README_
+	mv -f README_ README
+	wc -l README
 
-#	mv -f README_ README
-#	wc -l README
-	@echo 1>&2 Modify the makefile for target readme.
