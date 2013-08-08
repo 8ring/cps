@@ -12,7 +12,5 @@ nuke: clean
 	rm -f cps
 
 readme:
-	fmt -w 55 README > README_
-	mv -f README_ README
-	wc -l README
-
+	fmt -w 55 README > README_ && cp -f README_ README
+	rm README_
